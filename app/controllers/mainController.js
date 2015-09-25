@@ -12,7 +12,25 @@ controller('MainController', function ($scope) {
         console.log($scope.birthdays);
     };
     $scope.printBirthday = function () {
+        pdfMake.fonts = {
+            sourceSansPro: {
+                normal: 'SourceSansPro-Light.ttf',
+                bold: 'SourceSansPro-Semibold.ttf',
+                italics: 'SourceSansPro-LightItalic.ttf',
+                bolditalics: 'SourceSansPro-SemiboldItalic.ttf'
+            },
+            sourceSansProRegular: {
+                normal: 'SourceSansPro-Regular.ttf',
+                bold: 'SourceSansPro-Bold.ttf',
+                italics: 'SourceSansPro-Italic.ttf',
+                bolditalics: 'SourceSansPro-BoldItalic.ttf'
+            }
+        };
         var docDefinition = {
+            defaultStyle: {
+                font: 'sourceSansPro',
+                color: 'white'
+            },
             pageSize: {
                 width: 1024,
                 height: 768
@@ -31,6 +49,7 @@ controller('MainController', function ($scope) {
                         width: 86,
                         height: 113
                     }, {
+                        margin: [0, 20, 0, 0],
                         text: 'Geburtstage',
                         alignment: 'center',
                         style: 'header'
@@ -46,9 +65,8 @@ controller('MainController', function ($scope) {
             },
             styles: {
                 header: {
-                    fontSize: 60,
-                    color: 'white',
-                    bold: true
+                    fontSize: 65,
+                    color: 'white'
                 }
             },
             images: {
@@ -60,11 +78,11 @@ controller('MainController', function ($scope) {
         // open the PDF in a new window
         pdfMake.createPdf(docDefinition).open();
 
-        // print the PDF (temporarily Chrome-only)
-        pdfMake.createPdf(docDefinition).print();
-
-        // download the PDF (temporarily Chrome-only)
-        pdfMake.createPdf(docDefinition).download('birthdays.pdf');
+        //        // print the PDF (temporarily Chrome-only)
+        //        pdfMake.createPdf(docDefinition).print();
+        //
+        //        // download the PDF (temporarily Chrome-only)
+        //        pdfMake.createPdf(docDefinition).download('birthdays.pdf');
     };
 
 });
