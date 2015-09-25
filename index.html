@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>PDF Exporter</title>
+    <!-- boostrap-->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- angular -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="app/controllers/mainController.js"></script>
+    <script src="app/app.js"></script>
+    <!-- other -->
+    <script src="bower_components/pdfmake/build/pdfmake.min.js"></script>
+    <script src="bower_components/pdfmake/build/vfs_fonts.js"></script>
+</head>
+
+<body ng-app="EfgInfoApp" ng-controller="MainController">
+    <div class="row">
+        <div class="col-xs-12">
+            <table class="table table-striped">
+                <tr>
+                    <th>#</th>
+                    <th>Geburtsdatum</th>
+                    <th>Name</th>
+                </tr>
+                <tr ng-repeat="person in birthdays">
+                    <td>{{$index}}</td>
+                    <td>{{person.date}}</td>
+                    <td>{{person.name}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="bDate" placeholder="Datum">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" ng-model="bName" placeholder="Name">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+
+            <button type="button" ng-click="addBirthday()" class="btn btn-success">Add Person</button>
+        </div>
+        <div class="col-xs-6">
+
+            <button type="button" ng-click="printBirthday()" class="btn btn-success">Print</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+
+            <pre>{{ birthdays | json }}</pre>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
