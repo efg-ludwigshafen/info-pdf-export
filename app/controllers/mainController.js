@@ -12,29 +12,9 @@ controller('MainController', function ($scope, PdfTemplateService) {
         console.log($scope.birthdays);
     };
     $scope.printBirthday = function () {
-        pdfMake.fonts = {
-            sourceSansPro: {
-                normal: 'SourceSansPro-Light.ttf',
-                bold: 'SourceSansPro-Semibold.ttf',
-                italics: 'SourceSansPro-LightItalic.ttf',
-                bolditalics: 'SourceSansPro-SemiboldItalic.ttf'
-            },
-            sourceSansProRegular: {
-                normal: 'SourceSansPro-Regular.ttf',
-                bold: 'SourceSansPro-Bold.ttf',
-                italics: 'SourceSansPro-Italic.ttf',
-                bolditalics: 'SourceSansPro-BoldItalic.ttf'
-            }
-        };
-
-        // open the PDF in a new window
-        pdfMake.createPdf(docDefinition).open();
-
-        //        // print the PDF (temporarily Chrome-only)
-        //        pdfMake.createPdf(docDefinition).print();
-        //
-        //        // download the PDF (temporarily Chrome-only)
-        //        pdfMake.createPdf(docDefinition).download('birthdays.pdf');
+        PdfTemplateService.setHeadline('Geburtstage');
+        PdfTemplateService.setFooterText('Jesus sprach: Wer mich liebt, der wird mein Wort halten; und mein Vater wird ihn lieben, und wir werden zu ihm kommen und Wohnung bei ihm nehmen. (Johannes 14,23)');
+        PdfTemplateService.openPDF();
     };
 
 });
