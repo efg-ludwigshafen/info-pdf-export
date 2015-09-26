@@ -1,3 +1,4 @@
 angular.module('EfgInfoApp', [
-  'EfgInfoApp.MainController'
+    'EfgInfoApp.MainController',
+    'EfgInfoApp.PdfTemplateService'
 ]);
