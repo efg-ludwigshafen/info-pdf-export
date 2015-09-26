@@ -144,9 +144,10 @@ service('PdfTemplateService', function () {
             font: 'sourceSansPro',
             color: 'white'
         },
+        pageOrientation: 'landscape',
         pageSize: {
-            width: 1024,
-            height: 768
+            width: 768,
+            height: 1024
         },
         pageMargins: [40, 130, 40, 40],
         background: [
