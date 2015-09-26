@@ -14,7 +14,32 @@ service('PdfTemplateService', function () {
             bolditalics: 'SourceSansPro-BoldItalic.ttf'
         }
     };
-    var content = ""
+
+    var content = {
+        table: {
+            widths: [472, 472],
+            headerRows: 0,
+            body: []
+        },
+        layout: 'noBorders',
+        style: 'textRegular'
+    };
+    this.setTableContent = function (obj) {
+        var body = [];
+        angular.forEach(obj, function (item) {
+            var newRow = [{
+                text: item.left,
+                alignment: 'right',
+                style: 'textRegularSemiBold'
+                }, {
+                text: item.right,
+                alignment: 'left'
+                }];
+            body.push(newRow);
+        });
+        content.table.body = body;
+        console.log(obj);
+    };
     var fileName = "test.pdf";
     this.setFileName = function (newFileName) {
         fileName = newFileName;
@@ -128,10 +153,7 @@ service('PdfTemplateService', function () {
                 width: 1024,
                 height: 768
         }],
-        content: {
-            text: 'This is an sample PDF printed with pdfMake',
-            style: 'textRegular'
-        },
+        content: "",
         styles: {
             header: {
                 font: 'sourceSansPro',
@@ -175,6 +197,7 @@ service('PdfTemplateService', function () {
             docDefinition.footer = getFooter();
             docDefinition.pageMargins = [40, 130, 40, 200];
         }
+        docDefinition.content = content;
         return docDefinition;
     };
 });
