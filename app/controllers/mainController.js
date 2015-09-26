@@ -4,6 +4,9 @@ controller('MainController', function ($scope, PdfTemplateService) {
     $scope.birthdays = [];
     $scope.bDate = "";
     $scope.bName = "";
+    $scope.footer = "";
+    $scope.headline = "";
+
     $scope.addBirthday = function () {
         $scope.birthdays.push({
             left: $scope.bDate,
@@ -12,9 +15,9 @@ controller('MainController', function ($scope, PdfTemplateService) {
         console.log($scope.birthdays);
     };
     $scope.printBirthday = function () {
-        PdfTemplateService.setHeadline('Geburtstage');
+        PdfTemplateService.setHeadline($scope.headline);
         PdfTemplateService.setTableContent($scope.birthdays);
-        PdfTemplateService.setFooterText('Jesus sprach: Wer mich liebt, der wird mein Wort halten; und mein Vater wird ihn lieben, und wir werden zu ihm kommen und Wohnung bei ihm nehmen. (Johannes 14,23)');
+        PdfTemplateService.setFooterText($scope.footer);
         PdfTemplateService.openPDF();
     };
 

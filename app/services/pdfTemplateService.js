@@ -33,7 +33,8 @@ service('PdfTemplateService', function () {
                 style: 'textRegularSemiBold'
                 }, {
                 text: item.right,
-                alignment: 'left'
+                alignment: 'left',
+                style: 'textRegular'
                 }];
             body.push(newRow);
         });
@@ -59,7 +60,8 @@ service('PdfTemplateService', function () {
     var footerText;
     var hasFooter = false;
     this.setFooterText = function (newFooterText) {
-        hasFooter = true;
+        if (newFooterText !== "")
+            hasFooter = true;
         footerText = newFooterText;
     };
     var headline = "Default";
@@ -93,7 +95,7 @@ service('PdfTemplateService', function () {
             margin: [0, 0, 0, 0],
             layout: 'noBorders',
             table: {
-                widths: [40, 'auto', 40],
+                widths: [40, 944, 40],
                 body: [[{
                         text: " ",
                         fillColor: '#EBEBEB'
@@ -162,23 +164,23 @@ service('PdfTemplateService', function () {
             },
             textRegular: {
                 font: 'sourceSansProRegular',
-                fontSize: 22,
+                fontSize: 28,
                 color: '#EBEBEB'
             },
             textRegularSemiBold: {
                 font: 'sourceSansPro',
-                fontSize: 22,
+                fontSize: 28,
                 color: '#EBEBEB',
                 bold: true
             },
             textRegularD: {
                 font: 'sourceSansProRegular',
-                fontSize: 22,
+                fontSize: 28,
                 color: '#122533'
             },
             textRegularSemiBoldD: {
                 font: 'sourceSansPro',
-                fontSize: 22,
+                fontSize: 28,
                 color: '#122533',
                 bold: true
             }

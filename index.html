@@ -18,6 +18,12 @@
 </head>
 
 <body ng-app="EfgInfoApp" ng-controller="MainController">
+    <div class="row ">
+        <div class="col-xs-12 ">
+            <label class="">Überschrift</label>
+            <input type="text" class="form-control" ng-model="headline" placeholder="Überschrift">
+        </div>
+    </div>
     <div class="row">
         <div class="col-xs-12">
             <table class="table table-striped">
@@ -51,6 +57,12 @@
         <div class="col-xs-6">
 
             <button type="button" ng-click="printBirthday()" class="btn btn-success">Print</button>
+        </div>
+    </div>
+    <div class="row ">
+        <div class="col-xs-12 ">
+            <label class="">Vers/Fussnote</label>
+            <textarea type="text" class="form-control" ng-model="footer" placeholder="Fussnote"> </textarea>
         </div>
     </div>
     <div class="row">
