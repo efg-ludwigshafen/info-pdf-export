@@ -1,31 +1,33 @@
+english | [german](LIESMICH.md)
+
 # info-pdf-export
-PDF Export für die Infos im Gottesdienst und Geburtstage
 
-## Installation
+Exports PDFs for infos and birthdays in church services.
 
-Zunächst dieses Repository clonen:
+## getting started
+
+First clone this repository:
 
 ```bash
 git clone git@github.com:efg-ludwigshafen/info-pdf-export.git
 ```
 
-Dann in den Ordner begeben und Dependencies installieren:
+Then go into the new directory and install all dependencies:
 
 ```bash
 cd info-pdf-export && npm install
 ```
 
-## Lokal ausführen
+## developing locally
 
-Die app ist rein client-seitig, kann also einfach im Browser geöffnet werden.
-Dazu wahlweise die `index.html` mit dem Browser öffnen:
+As the app is fully client-side you can simply open the `index.html` in your browser:
 
 ```bash
 open index.html
 ```
 
-oder mit dem als Dependency heruntergeladenen [http-server](https://github.com/indexzero/http-server)
-den Root-Ordner sharen:
+You could also choose to use the included [http-server](https://github.com/indexzero/http-server)
+to share the root folder:
 
 ```bash
 npm run serve
