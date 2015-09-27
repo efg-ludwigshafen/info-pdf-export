@@ -4,7 +4,10 @@
   "description": "PDF Export für die Infos im Gottesdienst und Geburtstage",
   "main": "index.html",
   "scripts": {
+    "postinstall": "./node_modules/.bin/bower install",
+
     "test": "echo \"Error: no test specified\" && exit 1",
+
     "serve": "./node_modules/.bin/http-server"
   },
   "repository": {
@@ -21,6 +24,7 @@
   },
   "homepage": "https://github.com/efg-ludwigshafen/info-pdf-export#readme",
   "devDependencies": {
+    "bower": "^1.5.3",
     "http-server": "^0.8.5"
   }
 }
