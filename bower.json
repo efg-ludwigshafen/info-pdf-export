@@ -1,0 +1,26 @@
+{
+  "name": "info-pdf-export",
+  "version": "0.0.1",
+  "homepage": "https://efg-ludwigshafen.github.io/info-pdf-export",
+  "authors": [
+    "Jonas Weber <weber.jonas@gmail.com>"
+  ],
+  "description": "PDF Export für die Infos im Gottesdienst und Geburtstage",
+  "main": "index.html",
+  "keywords": [
+    "pdf"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "~0.13.4",
+    "bootstrap": "~3.3.5",
+    "pdfmake": "~0.1.18"
+  }
+}
