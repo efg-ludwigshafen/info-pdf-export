@@ -1,22 +1,16 @@
-angular.module('EfgInfoApp.MainController', ['ui.bootstrap']).
+angular.module('EfgInfoApp.MainController', []).
 controller('MainController', function ($scope, PdfTemplateService) {
+    $scope.actions = [
+        {name: 'Drucken', action: print}
+    ];
 
-    $scope.birthdays = [];
-    $scope.bDate = "";
-    $scope.bName = "";
+    $scope.rows = [];
     $scope.footer = "";
     $scope.headline = "";
 
-    $scope.addBirthday = function () {
-        $scope.birthdays.push({
-            left: $scope.bDate,
-            right: $scope.bName
-        });
-        console.log($scope.birthdays);
-    };
-    $scope.printBirthday = function () {
+    function print() {
         PdfTemplateService.setHeadline($scope.headline);
-        PdfTemplateService.setTableContent($scope.birthdays);
+        PdfTemplateService.setTableContent($scope.rows);
         PdfTemplateService.setFooterText($scope.footer);
         PdfTemplateService.openPDF();
     };
