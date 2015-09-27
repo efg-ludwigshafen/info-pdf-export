@@ -1,4 +1,4 @@
-[english](README.md) | deutsch
+[english](README.md) | german
 
 # info-pdf-export
 
