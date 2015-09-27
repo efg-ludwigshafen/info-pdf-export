@@ -4,75 +4,68 @@
 <head>
     <meta charset="utf-8">
     <title>PDF Exporter</title>
-    <!-- boostrap-->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/slide.css"
+          rel="stylesheet">
+</head>
+
+<body ng-app="EfgInfoApp"
+      ng-controller="MainController"
+      class="container">
+    <div class="toolbar">
+        <span class="toolbar-item"
+              ng-repeat="action in actions"
+              ng-click="action.action()"
+              ng-bind="action.name"></span>
+    </div>
+    <div class="slide">
+        <div class="headline">
+            <input type="text"
+                   ng-model="headline"
+                   placeholder="Überschrift"
+                   class="headline__content">
+            <img src="assets/img/logo.svg"
+                 class="headline__logo">
+        </div>
+        <div class="table">
+            <div class="table-row"
+                 ng-repeat="row in rows">
+                <span class="table-row__left" ng-bind="row.left"></span>
+                <span class="table-row__right" ng-bind="row.right"></span>
+                <button type="button"
+                        class="table-row__action"
+                        ng-click="rows.splice($$index, 1)">
+                    &times;
+                </button>
+            </div>
+            <form class="table-row table-row--inputrow"
+                 ng-submit="rows.push(newrow); newrow = {}"
+                 ng-init="newrow = {}">
+                <input type="text"
+                       class="table-row__left"
+                       placeholder="Geburtstag"
+                       ng-model="newrow.left">
+                <input type="text"
+                       class="table-row__right"
+                       placeholder="Name"
+                       ng-model="newrow.right">
+                <button class="table-row__action">+</button>
+            </form>
+        </div>
+        <textarea type="text"
+                  class="text"
+                  ng-model="footer"
+                  placeholder="Ein Vers..."></textarea>
+    </div>
+    <pre class="output">{{rows | json}}</pre>
+
     <!-- angular -->
     <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="bower_components/pdfmake/build/pdfmake.min.js"></script>
     <script src="app/services/pdfTemplateService.js"></script>
     <script src="app/controllers/mainController.js"></script>
     <script src="app/app.js"></script>
     <!-- other -->
-    <script src="bower_components/pdfmake/build/pdfmake.min.js"></script>
-    <script src="app/js/vfs_fonts_new.js"></script>
-</head>
-
-<body ng-app="EfgInfoApp" ng-controller="MainController">
-    <div class="row ">
-        <div class="col-xs-12 ">
-            <label class="">Überschrift</label>
-            <input type="text" class="form-control" ng-model="headline" placeholder="Überschrift">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <table class="table table-striped">
-                <tr>
-                    <th>#</th>
-                    <th>Geburtsdatum</th>
-                    <th>Name</th>
-                </tr>
-                <tr ng-repeat="person in birthdays">
-                    <td>{{$index}}</td>
-                    <td>{{person.left}}</td>
-                    <td>{{person.right}}</td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>
-                        <input type="text" class="form-control" ng-model="bDate" placeholder="Datum">
-                    </td>
-                    <td>
-                        <input type="text" class="form-control" ng-model="bName" placeholder="Name">
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-6">
-
-            <button type="button" ng-click="addBirthday()" class="btn btn-success">Add Person</button>
-        </div>
-        <div class="col-xs-6">
-
-            <button type="button" ng-click="printBirthday()" class="btn btn-success">Print</button>
-        </div>
-    </div>
-    <div class="row ">
-        <div class="col-xs-12 ">
-            <label class="">Vers/Fussnote</label>
-            <textarea type="text" class="form-control" ng-model="footer" placeholder="Fussnote"> </textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-
-            <pre>{{ birthdays | json }}</pre>
-        </div>
-    </div>
-
-
+    <script src="assets/js/vfs_fonts_new.js"></script>
 </body>
 
 </html>
