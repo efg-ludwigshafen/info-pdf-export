@@ -26,7 +26,6 @@ html {
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
-    height: 40px;
     width: 100%;
     color: #122533;
     background-color: #ebebeb;
@@ -38,8 +37,10 @@ html {
 }
 
 .toolbar-item {
-
-cursor: pointer;/* height: 100%; */vertical-align: middle;line-height: 1rem;height: 1rem;}
+    cursor: pointer;
+    vertical-align: middle;
+    line-height: 1.4;
+}
 
 .slide {
     display: flex;
@@ -48,10 +49,11 @@ cursor: pointer;/* height: 100%; */vertical-align: middle;line-height: 1rem;heig
     justify-content: space-between;
     height: calc(100vh - 40px);
     width: 100%;
-    max-width: calc((4 / 3) * (100vh - 40px));
+    max-width: calc((4 / 3) * (100vh - 1.4 * 4.5vh));
     color: #ebebeb;
     background-color: #122533;
 }
+
 .slide input,
 .slide textarea {
     color: #ebebeb;
