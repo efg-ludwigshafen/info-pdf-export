@@ -43,11 +43,13 @@
                 <input type="text"
                        class="table-row__left"
                        placeholder="Geburtstag"
-                       ng-model="newrow.left">
+                       ng-model="newrow.left"
+                       required>
                 <input type="text"
                        class="table-row__right"
                        placeholder="Name"
-                       ng-model="newrow.right">
+                       ng-model="newrow.right"
+                       required>
                 <button class="table-row__action">+</button>
             </form>
         </div>
@@ -56,7 +58,6 @@
                   ng-model="footer"
                   placeholder="Ein Vers..."></textarea>
     </div>
-    <pre class="output">{{rows | json}}</pre>
 
     <!-- angular -->
     <script src="bower_components/angular/angular.min.js"></script>
