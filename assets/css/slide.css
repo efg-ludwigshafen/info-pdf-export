@@ -85,11 +85,11 @@ html {
     display: block;
     max-width: 10vw;
     flex: 1;
-    padding: 1rem;
+    padding: 4px;
 }
 
 .table {
-    flex: 3;
+    flex: 4;
 }
 
 .table-row {
@@ -126,7 +126,7 @@ html {
 }
 
 .text {
-    flex: 3;
+    flex: 4;
     border: none;
     margin: 1rem;
     width: calc(100% - 2rem);
